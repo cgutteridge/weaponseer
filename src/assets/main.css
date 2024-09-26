@@ -1,0 +1,5 @@
+@import './base.css';
+
+tr.sleeping td input {
+    font-size: 100%;
+}
