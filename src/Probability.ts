@@ -26,4 +26,8 @@ export default class Probability {
   add (b: Probability): Probability {
     return new Probability(this.n * b.d + b.n * this.d, this.d * b.d)
   }
+
+  subtract (b: Probability): Probability {
+    return new Probability(this.n * b.d - b.n * this.d, this.d * b.d)
+  }
 }

@@ -1,12 +1,8 @@
 import type { Defender } from '@/model/Defender'
+import establishTargetIndex from '@/helpers/establishTargetIndex'
 
 export default function establishTarget (defState: string[], defenders: Defender[]): Defender | undefined {
-// establish target
-  const targetIndex = defState.findIndex(defender => {
-    const bits = defender.split(',')
-    const count = parseInt(bits[0])
-    return count > 0
-  })
+  const targetIndex = establishTargetIndex(defState,defenders)
   if (targetIndex === -1) {
     return undefined
   } else {

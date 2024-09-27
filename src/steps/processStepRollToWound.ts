@@ -35,7 +35,7 @@ export default function processStepRollToWound (props: string[], steps: string[]
 
   const stepsFail = [...steps]
   const stepsNormal = [...steps]
-
+console.log( diceChances)
   // remove everything to the next * from the stepsFail as the sequence ends
   for (let i = 0; stepsFail[i] !== '*' && i < stepsFail.length; i++) {
     stepsFail[i] = 'X'
