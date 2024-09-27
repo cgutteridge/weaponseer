@@ -1,0 +1,14 @@
+
+UI for output
+UI for setup
+
+Saves
+Damage
+FNP
+
+Number of Attacks: reroll?
+
+Hit: RR1,RR,Sustained,Crit,Lethal
+
+Wound: RR1, RR, Devestating, Crit, -1AC, -if S higher than T
+
