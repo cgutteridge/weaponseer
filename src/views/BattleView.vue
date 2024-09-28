@@ -16,7 +16,7 @@ const defenders: Defender[] = [
 ]
 
 let battleSpread: Spread<string> = [
-  ['A:1|H:4|S:3|D:1|*>0,0|0,0', new Probability(1, 1)]
+  ['A:20|H:4|S:3|D:2|*>0,0|0,0', new Probability(1, 1)]
 ]
 
 //console.log(battleSpread)
@@ -32,7 +32,6 @@ const report = battleSpreadToBattleReport(battleSpread,defenders)
 <template>
   // state
   <battle-report :report="report" />
-<pre>{{report}}</pre>
 </template>
 
 <style scoped>

@@ -15,7 +15,7 @@ export default function processSpreadStep (battleSpread: Spread<string>, defende
     const stepType = props.shift() ?? 'ERROR2'
     const stepResults = processStep(stepType, props, steps, defState, defenders)
     stepResults.map(stepResult => {
-      const newP = stepResult[1].mult(spreadItem[1])
+      const newP = stepResult[1].multiply(spreadItem[1])
       addToSpread(newBattleSpread, stepResult[0], newP)
     })
   })

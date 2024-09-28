@@ -29,7 +29,7 @@ export default function dicePhraseToProbability (dicePhrase: string): Spread<num
     for (let i = 1; i <= d; i++) {
       spread.forEach(spreadItem => {
         const newV = spreadItem[0] + i
-        const newP = spreadItem[1].mult(new Probability(1, d))
+        const newP = spreadItem[1].multiply(new Probability(1, d))
         addToSpread(newSpread, newV, newP)
       })
     }

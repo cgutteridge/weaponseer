@@ -19,7 +19,7 @@ export default class Probability {
     this.d = d
   }
 
-  mult (b: Probability): Probability {
+  multiply (b: Probability): Probability {
     return new Probability(this.n * b.n, this.d * b.d)
   }
 

@@ -9,7 +9,7 @@
     "publish": "run-p type-check \"build-only {@}\" -- && cd dist && git add . && git commit -a -m 'rebuild' && git push",
      
     "preview": "vite preview",
-    "test:unit": "vitest",
+    "test": "vitest",
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
