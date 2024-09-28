@@ -4,7 +4,7 @@ import type { WeaponOption } from '@/model/WeaponOption'
 export interface Defender {
   name: string
   t: number
-  save: number
+  ac: number
   invuln: number
   fnp: number
   w: number
