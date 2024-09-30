@@ -7,7 +7,7 @@ import renderCode from '@/helpers/renderCode'
 export default function processStepNumberOfAttacks (props: string[], steps: string[], defState: string[], defenders: Defender[]): Spread<string> {
   const rollSpread = dicePhraseToProbability(props[0])
   const maxAttacks: number = rollSpread.reduce((acc, rollSpreadItem) => Math.max(acc, rollSpreadItem[0]), 0)
-  // pull off the rest of this weapon
+  // pull off the rest of this weapon off the steps, and make a null weapon with the same number of steps
 
   const weapon: string[] = []
   const nullWeapon: string[] = []
@@ -15,7 +15,6 @@ export default function processStepNumberOfAttacks (props: string[], steps: stri
     weapon.push(steps.shift() ?? 'ERROR3')
     nullWeapon.push('X')
   }
-
   // don't forget the * (resolve damage) step
   weapon.push(steps.shift() ?? 'ERROR3')
   nullWeapon.push('*')

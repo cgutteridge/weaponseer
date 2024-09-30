@@ -23,7 +23,7 @@ const report = computed(() => {
     return { units: [], noDamage: never() }
   }
   let battleSpread: Spread<string> = [
-    ['D:5,1|*>0,0|0,0', always()]
+    ['H:4|AC|D:1|*>0,0|0,0', always()]
   ]
 
   while (battleSpread[0][0][0] !== '>') {

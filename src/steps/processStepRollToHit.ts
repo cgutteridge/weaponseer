@@ -1,4 +1,3 @@
-// props: ROLL NEEDED, opts
 import type { Defender } from '@/model/Defender'
 import type { Spread } from '@/model/Spread'
 import nullifyCurrentAttack from '@/steps/nullifyCurrentAttack'
