@@ -14,8 +14,6 @@ export const getStateStore = defineStore('state', () => {
 
   const defenderCount = computed(() => defenders.value.length)
 
-  const getDefenders = computed(() => defenders)
-
   const getDefender = (defenderIndex: number): Defender => {
     const defender = defenders.value[defenderIndex]
     if (defender === null) {

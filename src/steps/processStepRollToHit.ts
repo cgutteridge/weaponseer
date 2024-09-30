@@ -1,8 +1,8 @@
 import type { Defender } from '@/model/Defender'
 import type { Spread } from '@/model/Spread'
 import nullifyCurrentAttack from '@/steps/nullifyCurrentAttack'
-import diceChancesToSpread from '@/steps/diceChancesToSpread'
 import getModifiedRollOutcomes from '@/helpers/getModifiedRollOutcomes'
+import diceChancesToStepsSpread from '@/steps/diceChancesToStepsSpread'
 
 // step props: (targetRoll, optsList)
 export default function processStepRollToHit (props: string[], steps: string[], defState: string[], defenders: Defender[]): Spread<string> {
@@ -12,7 +12,7 @@ export default function processStepRollToHit (props: string[], steps: string[], 
   // crits might be lower than 6
   const targetRoll = parseInt(props.shift() ?? "7")
 
-  return diceChancesToSpread(
+  return diceChancesToStepsSpread(
     getModifiedRollOutcomes(targetRoll, false, false, 7),
     {
       fail: nullifyCurrentAttack(steps),

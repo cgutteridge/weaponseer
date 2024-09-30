@@ -3,7 +3,7 @@ import type { BattleReport } from '@/model/BattleReport'
 import ProbabilityAsPercentage from '@/components/ProbabilityAsPercentage.vue'
 import ProbabilityAsGraph from '@/components/ProbabilityAsGraph.vue'
 
-const props = defineProps<{ 'report': BattleReport }>()
+defineProps<{ 'report': BattleReport }>()
 </script>
 
 <template>
@@ -24,8 +24,8 @@ const props = defineProps<{ 'report': BattleReport }>()
                               :cumulative="report.noDamage"></probability-as-graph>
       </td>
     </tr>
-    <template v-for="(unit, unitIndex) in report.units" :key="unitIndex" :item="unit">
-      <template v-for="(model, modelIndex) in unit.models" :key="modelIndex" :item="model">
+    <template v-for="(unit, unitIndex) in report.units" :key="unitIndex" >
+      <template v-for="(model, modelIndex) in unit.models" :key="modelIndex" >
         <tr v-for="(modelState, modelStateIndex) in model" :key="modelStateIndex"
             :item="modelState">
           <td style='background-color:#ccc' v-if="modelStateIndex===0" :rowspan="unit.defender.w">

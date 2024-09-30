@@ -1,8 +1,6 @@
 <script setup lang="ts">
 
 import { getStateStore } from '@/stores/state'
-import type { Defender } from '@/model/Defender'
-import Probability from '@/Probability'
 import type { Spread } from '@/model/Spread'
 import processSpreadStep from '@/processSpreadStep'
 import battleSpreadToBattleReport from '@/helpers/battleSpreadToBattleReport'
@@ -23,10 +21,10 @@ const report = computed(() => {
     return { units: [], noDamage: never() }
   }
   let battleSpread: Spread<string> = [
-    ['H:4|AC|D:1|*>0,0|0,0', always()]
+    {item:'H:4|AC|D:1|*>0,0|0,0', probability:always()}
   ]
 
-  while (battleSpread[0][0][0] !== '>') {
+  while (battleSpread[0].item[0] !== '>') {
     battleSpread = processSpreadStep(battleSpread, defenders)
   }
   return battleSpreadToBattleReport(battleSpread, defenders)

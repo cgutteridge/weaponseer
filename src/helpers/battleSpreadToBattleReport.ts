@@ -21,9 +21,11 @@ export default function battleSpreadToBattleReport (battleSpread: Spread<string>
     report.units.push({ defender, models })
   })
   battleSpread.forEach((outcome) => {
-    const defState = parseDefState(outcome[0].substring(1))
+    const defState = parseDefState(outcome.item.substring(1))
     assignDamageToModels(outcome, defState, report, defenders)
   })
+
+  // work out cumulative probability
   let cumulative: Probability = always().subtract(report.noDamage)
   report.units.forEach(unit => {
     for (let model = 1; model <= unit.defender.n; model++) {

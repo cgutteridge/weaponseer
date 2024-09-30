@@ -5,8 +5,8 @@ import getModifiedRollOutcomes from '@/helpers/getModifiedRollOutcomes'
 import establishTarget from '@/helpers/establishTarget'
 import processStepNull from '@/steps/processStepNull'
 import nullifyCurrentAttack from '@/steps/nullifyCurrentAttack'
-import diceChancesToSpread from '@/steps/diceChancesToSpread'
 import strengthAndToughnessToTargetRoll from '@/steps/strengthAndToughnessToTargetRoll'
+import diceChancesToStepsSpread from '@/steps/diceChancesToStepsSpread'
 
 // step props: (strength, optsList)
 // TODO the -1 if s higher than t rule
@@ -26,7 +26,7 @@ export default function processStepRollToWound (props: string[], steps: string[]
   const toughness = target.t
   const targetRoll = strengthAndToughnessToTargetRoll(strength, toughness)
 
-  return diceChancesToSpread(
+  return diceChancesToStepsSpread(
     getModifiedRollOutcomes(targetRoll, false, false, 7),
     {
       fail: nullifyCurrentAttack(steps),

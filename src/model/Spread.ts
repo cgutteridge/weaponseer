@@ -1,5 +1,5 @@
 
 // a range of probabilities to get a number
-import Probability from '@/Probability'
+import type SpreadItem from '@/model/SpreadItem'
 
-export type Spread<T> = [T, Probability][]
+export type Spread<T> = SpreadItem<T>[]

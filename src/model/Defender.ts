@@ -1,5 +1,3 @@
-import type { DicePhrase } from '@/model/DicePhrase'
-import type { WeaponOption } from '@/model/WeaponOption'
 
 export interface Defender {
   name: string

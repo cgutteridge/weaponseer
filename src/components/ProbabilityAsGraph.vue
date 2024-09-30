@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type Probability from '@/Probability'
-import { computed, type Ref } from 'vue'
+import { computed } from 'vue'
 
 const props = defineProps<{ probability: Probability, cumulative: Probability }>()
 

@@ -5,6 +5,7 @@ import type { Spread } from '@/model/Spread'
 import Probability from '@/Probability'
 import allocateDamage from '@/helpers/allocateDamage'
 import renderCode from '@/helpers/renderCode'
+import always from '@/helpers/always'
 
 // step props: (damage, mortals)
 export default function processStepApplyDamage (props: string[], steps: string[], defState: string[], defenders: Defender[]): Spread<string> {
@@ -20,5 +21,8 @@ export default function processStepApplyDamage (props: string[], steps: string[]
     }
   }
 
-  return [[renderCode(steps, defState), new Probability(1, 1)]]
+  return [{
+    item: renderCode(steps, defState),
+    probability: always()
+  }]
 }
