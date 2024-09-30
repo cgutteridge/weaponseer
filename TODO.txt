@@ -1,6 +1,7 @@
 
 UI for output
-UI for setup
+UI for weapon
+weapon to codes
 
 Saves
 Damage
@@ -12,3 +13,4 @@ Hit: RR1,RR,Sustained,Crit,Lethal
 
 Wound: RR1, RR, Devestating, Crit, -1AC, -if S higher than T
 
+option to set decimal places

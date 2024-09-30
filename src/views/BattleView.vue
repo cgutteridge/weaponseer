@@ -23,7 +23,7 @@ const report = computed(() => {
     return { units: [], noDamage: never() }
   }
   let battleSpread: Spread<string> = [
-    ['A:20|H:4|S:3|D:1|*>0,0|0,0', always()]
+    ['D:5,1|*>0,0|0,0', always()]
   ]
 
   while (battleSpread[0][0][0] !== '>') {
@@ -39,7 +39,6 @@ const report = computed(() => {
   <defender-list></defender-list>
   <hr />
   <battle-report :report="report" />
-
 </template>
 
 <style scoped>

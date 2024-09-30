@@ -6,14 +6,15 @@ import Probability from '@/Probability'
 import allocateDamage from '@/helpers/allocateDamage'
 import renderCode from '@/helpers/renderCode'
 
+// step props: (damage, mortals)
 export default function processStepApplyDamage (props: string[], steps: string[], defState: string[], defenders: Defender[]): Spread<string> {
   const spread: Spread<string> = []
 
-  allocateDamage(defState, defenders, parseInt(props[0]))
+  allocateDamage(defState, defenders, parseInt(props[0] ?? '0'))
 
   // mortals
   if (props[1] !== undefined) {
-    for (let i = 0; i < props[1].length; i++) {
+    for (let i = 0; i < parseInt(props[1] ?? '0'); i++) {
       allocateDamage(defState, defenders, 1)
     }
   }

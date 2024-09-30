@@ -3,16 +3,19 @@ import type { Spread } from '@/model/Spread'
 import dicePhraseToProbability from '@/helpers/dicePhraseToProbability'
 import renderCode from '@/helpers/renderCode'
 
+// step props: (countDicePhrase, optsList)
 export default function processStepNumberOfAttacks (props: string[], steps: string[], defState: string[], defenders: Defender[]): Spread<string> {
   const rollSpread = dicePhraseToProbability(props[0])
   const maxAttacks: number = rollSpread.reduce((acc, rollSpreadItem) => Math.max(acc, rollSpreadItem[0]), 0)
   // pull off the rest of this weapon
+
   const weapon: string[] = []
   const nullWeapon: string[] = []
   while (steps[0] !== '*') {
     weapon.push(steps.shift() ?? 'ERROR3')
     nullWeapon.push('X')
   }
+
   // don't forget the * (resolve damage) step
   weapon.push(steps.shift() ?? 'ERROR3')
   nullWeapon.push('*')

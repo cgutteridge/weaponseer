@@ -6,6 +6,7 @@ import processStepNull from '@/steps/processStepNull'
 import processStepNumberOfAttacks from '@/steps/processStepNumberOfAttacks'
 import processStepRollToHit from '@/steps/processStepRollToHit'
 import processStepRollToWound from '@/steps/processStepRollToWound'
+import processStepRollToSave from '@/steps/processStepRollToSave'
 
 export default function processStep (stepType: string, props: string[], steps: string[], defState: string[], defenders: Defender[]): Spread<string> {
   if (stepType === 'A') {
@@ -16,6 +17,9 @@ export default function processStep (stepType: string, props: string[], steps: s
   }
   if (stepType === 'S') {
     return processStepRollToWound(props, steps, defState, defenders)
+  }
+  if (stepType === 'AC') {
+    return processStepRollToSave(props, steps, defState, defenders)
   }
   if (stepType === 'D') {
     return processStepApplyDamage(props, steps, defState, defenders)
