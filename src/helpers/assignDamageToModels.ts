@@ -1,8 +1,7 @@
-import Probability from '@/Probability'
-import type { BattleReport } from '@/model/BattleReport'
-import type { Defender } from '@/model/Defender'
-import type DefenderState from '@/model/DefenderState'
-import type SpreadItem from '@/model/SpreadItem'
+import type { BattleReport } from '@/models/BattleReport'
+import type { Defender } from '@/models/Defender'
+import type DefenderState from '@/models/DefenderState'
+import type SpreadItem from '@/models/SpreadItem'
 
 // nb this assumes damage is applied sequentially and not using precision attacks
 export function assignDamageToModels (outcome: SpreadItem<string>, defState: DefenderState[], report: BattleReport, defenders: Defender[]) {

@@ -3,14 +3,18 @@ UI for output
 UI for weapon
 weapon to codes
 
-Saves
-Damage
-FNP
-
 Number of Attacks: reroll?
+
+better colour coding 
 
 Hit: RR1,RR,Sustained,Crit,Lethal
 
 Wound: RR1, RR, Devestating, Crit, -1AC, -if S higher than T
 
 option to set decimal places
+
+Bug: if damage is certain, the cumulative odds go weird.
+
+Notes:
+Damage from devastating wounds is applied as if it were just a bypass to saves NOT saved until the end of all attacks (as technically it is mortal wounds) as nobody actually does that
+

@@ -1,12 +1,12 @@
-import type { Defender } from '@/model/Defender'
-import type { Spread } from '@/model/Spread'
+import type { Defender } from '@/models/Defender'
+import type { Spread } from '@/models/Spread'
 import dicePhraseToProbability from '@/helpers/dicePhraseToProbability'
 import renderCode from '@/helpers/renderCode'
-import addToSpread from '@/helpers/addToSpread'
+import addToSpread from '@/helpers/spreadHelpers/addToSpread'
 
 // step props: (countDicePhrase, optsList)
 export default function processStepNumberOfAttacks (props: string[], steps: string[], defState: string[], defenders: Defender[]): Spread<string> {
-  const attacksDicePhraseString  = props.shift() ?? "1"
+  const attacksDicePhraseString = props.shift() ?? '1'
 
   const rollSpread = dicePhraseToProbability(attacksDicePhraseString)
 
@@ -18,10 +18,16 @@ export default function processStepNumberOfAttacks (props: string[], steps: stri
   const weapon: string[] = []
   const nullWeapon: string[] = []
   while (steps[0] !== '*') {
-    weapon.push(steps.shift() ?? 'ERROR3')
-    nullWeapon.push('X')
+    const step = steps.shift() ?? 'ERROR3'
+    weapon.push(step)
+    // just zero the damage on a null weapon
+    if (step.substring(0, 2) == 'D:') {
+      nullWeapon.push('D:0')
+    } else {
+      nullWeapon.push(step)
+    }
   }
-  // don't forget the * (resolve damage) step
+  // don't forget the * (end of weapon sequence) step
   weapon.push(steps.shift() ?? 'ERROR3')
   nullWeapon.push('*')
 
@@ -36,8 +42,7 @@ export default function processStepNumberOfAttacks (props: string[], steps: stri
       }
     }
     newSteps.push(...steps)
-    const code = renderCode(newSteps, defState)
-    addToSpread(newSpread, renderCode(newSteps, defState),rollSpreadItem.probability )
+    addToSpread(newSpread, renderCode(newSteps, defState), rollSpreadItem.probability)
   })
 
   return newSpread

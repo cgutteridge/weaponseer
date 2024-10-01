@@ -1,4 +1,4 @@
-import type DefenderState from '@/model/DefenderState'
+import type DefenderState from '@/models/DefenderState'
 
 export default function parseDefState (defStateString: string): DefenderState[] {
   const strForm: string[][] = defStateString.split(/\|/).map(defStateItem => defStateItem.split(/,/))

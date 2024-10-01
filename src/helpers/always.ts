@@ -1,5 +1,3 @@
-import Probability from '@/Probability'
+import type { Probability } from '@/models/Probability'
 
-export default function always () {
-  return new Probability(1,1)
-}
+export default function always (): Probability { return 1}

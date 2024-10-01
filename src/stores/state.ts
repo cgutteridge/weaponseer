@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
-import type { Weapon } from '@/model/Weapon'
-import type { Defender } from '@/model/Defender'
+import type { Weapon } from '@/models/Weapon'
+import type { Defender } from '@/models/Defender'
 import { computed, type Ref, ref } from 'vue'
 
 export const getStateStore = defineStore('state', () => {

@@ -1,5 +1,5 @@
-import Probability from '@/Probability'
+import type { Probability } from '@/models/Probability'
 
-export default function never () {
-  return new Probability(0,1)
+export default function never (): Probability {
+  return 0
 }

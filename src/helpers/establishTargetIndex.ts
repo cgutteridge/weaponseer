@@ -1,4 +1,4 @@
-import type { Defender } from '@/model/Defender'
+import type { Defender } from '@/models/Defender'
 
 export default function establishTargetIndex (defState: string[], defenders: Defender[]) {
   const targetIndex = defState.findIndex((defender,defIndex) => {

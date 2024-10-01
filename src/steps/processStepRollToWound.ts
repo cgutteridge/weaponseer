@@ -1,12 +1,12 @@
 // props: ROLL NEEDED, opts
-import type { Defender } from '@/model/Defender'
-import type { Spread } from '@/model/Spread'
+import type { Defender } from '@/models/Defender'
+import type { Spread } from '@/models/Spread'
 import getModifiedRollOutcomes from '@/helpers/getModifiedRollOutcomes'
 import establishTarget from '@/helpers/establishTarget'
 import processStepNull from '@/steps/processStepNull'
-import nullifyCurrentAttack from '@/steps/nullifyCurrentAttack'
-import strengthAndToughnessToTargetRoll from '@/steps/strengthAndToughnessToTargetRoll'
-import diceChancesToStepsSpread from '@/steps/diceChancesToStepsSpread'
+import nullifyCurrentAttack from '@/helpers/stepHelpers/nullifyCurrentAttack'
+import strengthAndToughnessToTargetRoll from '@/helpers/strengthAndToughnessToTargetRoll'
+import diceChancesToStepsSpread from '@/helpers/diceChancesToStepsSpread'
 
 // step props: (strength, optsList)
 // TODO the -1 if s higher than t rule
@@ -30,7 +30,7 @@ export default function processStepRollToWound (props: string[], steps: string[]
     getModifiedRollOutcomes(targetRoll, false, false, 7),
     {
       fail: nullifyCurrentAttack(steps),
-      normal: [...steps],
+      norm: [...steps],
       crit: [...steps]
     },
     defState)

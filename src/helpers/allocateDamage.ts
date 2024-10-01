@@ -1,4 +1,4 @@
-import type { Defender } from '@/model/Defender'
+import type { Defender } from '@/models/Defender'
 
 export default function allocateDamage (defState: string[], defenders: Defender[], damage: number) {
   for (let i = 0; i < defState.length; i++) {

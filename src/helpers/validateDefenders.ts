@@ -1,4 +1,4 @@
-import type { Defender } from '@/model/Defender'
+import type { Defender } from '@/models/Defender'
 import validateDefender from '@/helpers/validateDefender'
 
 export default function validateDefenders (defenders: Defender[]) :boolean {

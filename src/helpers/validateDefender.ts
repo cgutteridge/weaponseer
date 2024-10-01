@@ -1,4 +1,4 @@
-import type { Defender } from '@/model/Defender'
+import type { Defender } from '@/models/Defender'
 
 export default function validateDefender (defender: Defender) {
   if (defender.n < 1 || defender.n > 50) {return false}

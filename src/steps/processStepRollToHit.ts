@@ -1,8 +1,8 @@
-import type { Defender } from '@/model/Defender'
-import type { Spread } from '@/model/Spread'
-import nullifyCurrentAttack from '@/steps/nullifyCurrentAttack'
+import type { Defender } from '@/models/Defender'
+import type { Spread } from '@/models/Spread'
+import nullifyCurrentAttack from '@/helpers/stepHelpers/nullifyCurrentAttack'
 import getModifiedRollOutcomes from '@/helpers/getModifiedRollOutcomes'
-import diceChancesToStepsSpread from '@/steps/diceChancesToStepsSpread'
+import diceChancesToStepsSpread from '@/helpers/diceChancesToStepsSpread'
 
 // step props: (targetRoll, optsList)
 export default function processStepRollToHit (props: string[], steps: string[], defState: string[], defenders: Defender[]): Spread<string> {
@@ -16,7 +16,7 @@ export default function processStepRollToHit (props: string[], steps: string[], 
     getModifiedRollOutcomes(targetRoll, false, false, 7),
     {
       fail: nullifyCurrentAttack(steps),
-      normal: [...steps],
+      norm: [...steps],
       crit: [...steps]
     },
     defState)

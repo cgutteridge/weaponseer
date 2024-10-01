@@ -1,8 +1,8 @@
-import type { Spread } from '@/model/Spread'
-import Probability from '@/Probability'
-import addToSpread from '@/helpers/addToSpread'
+import type { Spread } from '@/models/Spread'
+import addToSpread from '@/helpers/spreadHelpers/addToSpread'
 import always from '@/helpers/always'
 
+// assumes that it's all the same size dice. Not D3+D6
 export default function dicePhraseToProbability (dicePhrase: string): Spread<number> {
   const diceRegex = /^(\d+)?[dD](\d+)([+-]\d+)?|(\d+)$/
 
@@ -18,20 +18,20 @@ export default function dicePhraseToProbability (dicePhrase: string): Spread<num
     item = parseInt(bits[4])
   }
   let count = 0
-  let d = 0
+  let diceSize = 0
   if (bits[2] !== undefined) {
-    d = parseInt(bits[2])
+    diceSize = parseInt(bits[2])
     count = bits[1] === undefined ? 1 : parseInt(bits[1])
   }
 
   let spread: Spread<number> = [{ item, probability: always() }]
   while (count > 0) {
     const newSpread: Spread<number> = []
-    for (let i = 1; i <= d; i++) {
+    for (let i = 1; i <= diceSize; i++) {
       spread.forEach(spreadItem => {
         addToSpread(newSpread,
           spreadItem.item + i,
-          spreadItem.probability.multiply(new Probability(1, d))
+          spreadItem.probability * (1/diceSize)
         )
       })
     }

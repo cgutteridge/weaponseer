@@ -1,5 +1,5 @@
-import type { Defender } from '@/model/Defender'
-import type { Spread } from '@/model/Spread'
+import type { Defender } from '@/models/Defender'
+import type { Spread } from '@/models/Spread'
 import renderCode from '@/helpers/renderCode'
 import always from '@/helpers/always'
 

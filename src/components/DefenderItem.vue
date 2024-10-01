@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { getStateStore } from '@/stores/state'
 import { computed } from 'vue'
-import type { Defender } from '@/model/Defender'
+import type { Defender } from '@/models/Defender'
 
 const stateStore = getStateStore()
 

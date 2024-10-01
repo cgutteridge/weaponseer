@@ -1,4 +1,4 @@
-import type { Defender } from '@/model/Defender'
+import type { Defender } from '@/models/Defender'
 import establishTargetIndex from '@/helpers/establishTargetIndex'
 
 export default function establishTarget (defState: string[], defenders: Defender[]): Defender | undefined {
