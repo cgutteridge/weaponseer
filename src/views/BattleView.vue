@@ -21,7 +21,7 @@ const report = computed(() => {
     return { units: [], noDamage: never() }
   }
   let battleSpread: Spread<string> = [
-    { item: 'H:4|D:2|FNP|AD:0|*|M:0>0,0|0,0', probability: always() }
+    { item: 'A:2|H:4|S:3|SAVE:0|D:1|FNP|AD:0|*|M:0>0,0|0,0', probability: always() }
   ]
 
   while (battleSpread[0].item[0] !== '>') {

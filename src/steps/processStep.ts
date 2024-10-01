@@ -21,7 +21,7 @@ export default function processStep (stepType: string, props: string[], steps: s
   if (stepType === 'S') {
     return processStepRollToWound(props, steps, defState, defenders)
   }
-  if (stepType === 'AC') {
+  if (stepType === 'SAVE') {
     return processStepRollToSave(props, steps, defState, defenders)
   }
   if (stepType === 'D') {
