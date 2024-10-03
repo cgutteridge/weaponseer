@@ -14,6 +14,7 @@ const defender = computed<Defender>(
 <template>
   <div style="background-color:#ccc; padding: 0.2rem; margin-bottom: 0.2rem">
     <div>
+      ✥
       <input v-model="defender.name" />
       Count:<input v-model="defender.n" type="number" min="1" max="30"/>
       T:<input v-model="defender.t" type="number" min="1" max="30"/>

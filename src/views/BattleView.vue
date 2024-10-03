@@ -20,8 +20,10 @@ const report = computed(() => {
 </script>
 
 <template>
-  <defender-list></defender-list>
-  <weapon-list></weapon-list>
+  <div class="row">
+    <defender-list class="column"></defender-list>
+    <weapon-list class="column"></weapon-list>
+  </div>
   <hr />
   <battle-report :report="report" />
   <hr />
@@ -31,4 +33,19 @@ const report = computed(() => {
 </template>
 
 <style scoped>
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 1rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
 </style>
