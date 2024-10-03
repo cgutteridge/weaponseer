@@ -1,11 +1,11 @@
-import type { DicePhrase } from '@/models/DicePhrase'
 import type { WeaponOption } from '@/models/WeaponOption'
 
 export interface Weapon {
-  attacks: DicePhrase
+  name: string
+  attacks: string
   strength: number
   ws: number
   ap: number
   options: WeaponOption[]
-  damage: DicePhrase
+  damage: string
 }

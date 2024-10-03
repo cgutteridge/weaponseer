@@ -21,6 +21,7 @@ const defender = computed<Defender>(
       W:<input v-model="defender.w" type="number" min="1" max="200"/>
       Inv:<input v-model="defender.invuln" type="number" min="2" max="7"/>
       FNP:<input v-model="defender.fnp" type="number" min="2" max="7"/>
+      [remove TODO]
     </div>
   </div>
 
