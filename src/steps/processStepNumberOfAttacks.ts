@@ -1,6 +1,6 @@
 import type { Defender } from '@/models/Defender'
 import type { Spread } from '@/models/Spread'
-import dicePhraseToProbability from '@/helpers/dicePhraseToProbability'
+import dicePhraseToProbabilities from '@/helpers/dicePhraseToProbabilities'
 import renderCode from '@/helpers/renderCode'
 import addToSpread from '@/helpers/spreadHelpers/addToSpread'
 
@@ -8,7 +8,7 @@ import addToSpread from '@/helpers/spreadHelpers/addToSpread'
 export default function processStepNumberOfAttacks (props: string[], steps: string[], defState: string[], defenders: Defender[]): Spread<string> {
   const attacksDicePhraseString = props.shift() ?? '1'
 
-  const rollSpread = dicePhraseToProbability(attacksDicePhraseString)
+  const rollSpread = dicePhraseToProbabilities(attacksDicePhraseString)
 
   // find the highest number of attacks
   const maxAttacks: number = rollSpread.reduce(
