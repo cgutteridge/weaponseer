@@ -26,6 +26,7 @@ function valueChanged (event: Event) {
   const value: number = parseInt(rawValue)
   inputValue.value = rawValue
   if (isNaN(value) || value < props.min || value > props.max) {
+    // don't emit bad values
     inputValid.value = false
   } else {
     inputValid.value = true
