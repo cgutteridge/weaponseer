@@ -35,7 +35,7 @@ function valueChanged (event: Event) {
 </script>
 
 <template>
-  <input :value="inputValue" @input="valueChanged" type="number" :min="min" :max="max" :class="inputClass" />
+  <input :value="inputValue" @input="valueChanged" size="1" type="number" :min="min" :max="max" :class="inputClass" />
 </template>
 
 <style scoped>

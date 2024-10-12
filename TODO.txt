@@ -1,13 +1,10 @@
 
-remove weapon
-remove defender
-add weapon
-add defender
-default weapons
+add allows you to pick from default weapons
 default units with weapons and defenders
-enforce max & min on number inputs
 Add options to weapons
 weapon options + attacker options (abilities like rerolls)
+
+drag weapons and defender to change order
 
 Number of Attacks: reroll?
 Hit: RR1,RR,Sustained,Crit,Lethal
@@ -15,10 +12,25 @@ Wound: RR1, RR, Devestating, Crit, -1AC, -if S higher than T
 
 better colour coding 
 
+options system
+
+save values to cookie
 option to set decimal places
 
-Bug: if damage is certain, the cumulative odds go weird.
+BUGS
 
-Notes:
+if damage is certain, the cumulative odds go weird.
+remove last defender causes an error
+
+NOTES
+
 Damage from devastating wounds is applied as if it were just a bypass to saves NOT saved until the end of all attacks (as technically it is mortal wounds) as nobody actually does that
 
+DONE
+
+
+remove weapon
+remove defender
+add weapon
+add defender
+enforce max & min on number inputs

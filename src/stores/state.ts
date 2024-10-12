@@ -11,9 +11,28 @@ export const getStateStore = defineStore('state', () => {
   const weapons: Ref<Weapon[]> = ref([])
   const defenders: Ref<Defender[]> = ref([])
 
-  const addDefender = (defender: Defender) => defenders.value.push(defender)
+  let nextWeaponId = 0
+  let nextDefenderId = 0
 
-  const removeDefender = (defenderIndex: number) => defenders.value.splice(defenderIndex, 1)
+  const addWeapon = (weapon: Weapon) => weapons.value.push({ ...weapon, id: nextWeaponId++ })
+  const addDefender = (defender: Defender) => defenders.value.push({ ...defender, id: nextDefenderId++ })
+
+  const addDefaultWeapon = () => {
+    addWeapon({
+      ap: 0, attacks: '1', damage: '1', name: 'Lasgun', options: [], strength: 3, ws: 4
+    })
+  }
+  const addDefaultDefender = () => {
+    addDefender({
+      ac: 5, fnp: 7, invuln: 7, n: 10, name: 'Guardsman', t: 3, w: 1
+    })
+  }
+
+  const removeWeapon = (id: number) =>
+    weapons.value = weapons.value.filter(weapon => weapon.id !== id)
+
+  const removeDefender = (id: number) =>
+    defenders.value = defenders.value.filter(defender => defender.id !== id)
 
   const defenderCount = computed(() => defenders.value.length)
 
@@ -38,12 +57,9 @@ export const getStateStore = defineStore('state', () => {
     } catch (error) {
       console.error(error)
       spreadErrors.value = (error as Error).message
-      return [
-      ]
+      return []
     }
   })
-
-  const addWeapon = (weapon: Weapon) => weapons.value.push(weapon)
 
   const weaponCount = computed(() => weapons.value.length)
 
@@ -62,11 +78,14 @@ export const getStateStore = defineStore('state', () => {
     removeDefender,
     defenderCount,
     getDefender,
+    addDefaultDefender,
 
     weapons,
     addWeapon,
+    removeWeapon,
     weaponCount,
     getWeapon,
+    addDefaultWeapon,
 
     startingSpread,
     spreadErrors

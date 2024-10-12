@@ -33,7 +33,7 @@ function valueChanged (event: Event) {
 </script>
 
 <template>
-  <input :value="inputValue" size="6" @input="valueChanged" ref="input" :class="inputClass">
+  <input :value="inputValue" style="width:4em" @input="valueChanged" ref="input" :class="inputClass">
 </template>
 
 <style scoped>

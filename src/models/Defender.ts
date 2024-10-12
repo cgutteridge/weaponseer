@@ -1,5 +1,6 @@
 
 export interface Defender {
+  id?: number
   name: string
   t: number
   ac: number
