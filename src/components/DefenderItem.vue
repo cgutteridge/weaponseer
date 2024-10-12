@@ -2,6 +2,7 @@
 import { getStateStore } from '@/stores/state'
 import { computed } from 'vue'
 import type { Defender } from '@/models/Defender'
+import TargetRollInput from '@/components/TargetRollInput.vue'
 
 const stateStore = getStateStore()
 
@@ -16,13 +17,14 @@ const defender = computed<Defender>(
     <div>
       ✥
       <input v-model="defender.name" />
-      Count:<input v-model="defender.n" type="number" min="1" max="30"/>
-      T:<input v-model="defender.t" type="number" min="1" max="30"/>
-      AC:<input v-model="defender.ac" type="number" min="2" max="7"/>
-      W:<input v-model="defender.w" type="number" min="1" max="200"/>
-      Inv:<input v-model="defender.invuln" type="number" min="2" max="7"/>
-      FNP:<input v-model="defender.fnp" type="number" min="2" max="7"/>
-      [remove TODO]
+      Count:<input v-model="defender.n" type="number" min="1" max="30" />
+      T:<input v-model="defender.t" type="number" min="1" max="30" />
+      AC:
+      <target-roll-input v-model:value="defender.ac" />
+      W:<input v-model="defender.w" type="number" min="1" max="200" />
+      Inv:<target-roll-input v-model:value="defender.invuln" />
+      FNP:<target-roll-input v-model:value="defender.fnp" />
+      <div style="cursor: pointer" @click="stateStore.removeDefender()">[remove TODO]</div>
     </div>
   </div>
 
