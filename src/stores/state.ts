@@ -7,7 +7,6 @@ import type { Weapon } from '@/models/Weapon'
 import weaponsAndDefendersToStartingSpread from '@/helpers/weaponsAndDefendersToStartingSpread'
 
 export const getStateStore = defineStore('state', () => {
-
   const weapons: Ref<Weapon[]> = ref([])
   const defenders: Ref<Defender[]> = ref([])
 
@@ -15,24 +14,37 @@ export const getStateStore = defineStore('state', () => {
   let nextDefenderId = 0
 
   const addWeapon = (weapon: Weapon) => weapons.value.push({ ...weapon, id: nextWeaponId++ })
-  const addDefender = (defender: Defender) => defenders.value.push({ ...defender, id: nextDefenderId++ })
+  const addDefender = (defender: Defender) =>
+    defenders.value.push({ ...defender, id: nextDefenderId++ })
 
   const addDefaultWeapon = () => {
     addWeapon({
-      ap: 0, attacks: '1', damage: '1', name: 'Lasgun', options: [], strength: 3, ws: 4
+      ap: 0,
+      attacks: '1',
+      damage: '1',
+      name: 'Lasgun',
+      options: [],
+      strength: 3,
+      ws: 4
     })
   }
   const addDefaultDefender = () => {
     addDefender({
-      ac: 5, fnp: 7, invuln: 7, n: 10, name: 'Guardsman', t: 3, w: 1
+      ac: 5,
+      fnp: 7,
+      invuln: 7,
+      n: 10,
+      name: 'Guardsman',
+      t: 3,
+      w: 1
     })
   }
 
   const removeWeapon = (id: number) =>
-    weapons.value = weapons.value.filter(weapon => weapon.id !== id)
+    (weapons.value = weapons.value.filter((weapon) => weapon.id !== id))
 
   const removeDefender = (id: number) =>
-    defenders.value = defenders.value.filter(defender => defender.id !== id)
+    (defenders.value = defenders.value.filter((defender) => defender.id !== id))
 
   const defenderCount = computed(() => defenders.value.length)
 
@@ -51,9 +63,7 @@ export const getStateStore = defineStore('state', () => {
     try {
       const startingState = weaponsAndDefendersToStartingSpread(weapons.value, defenders.value)
       console.log(startingState)
-      return [
-        { item: startingState, probability: always() }
-      ]
+      return [{ item: startingState, probability: always() }]
     } catch (error) {
       console.error(error)
       spreadErrors.value = (error as Error).message
@@ -72,7 +82,6 @@ export const getStateStore = defineStore('state', () => {
   }
 
   return {
-
     defenders,
     addDefender,
     removeDefender,

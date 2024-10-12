@@ -3,8 +3,8 @@
 import type { Spread } from '@/models/Spread'
 import type { Probability } from '@/models/Probability'
 
-export default function addToSpread<T> (spread: Spread<T>, item: T, probability: Probability) {
-  const index = spread.findIndex(spreadItem => spreadItem.item === item)
+export default function addToSpread<T>(spread: Spread<T>, item: T, probability: Probability) {
+  const index = spread.findIndex((spreadItem) => spreadItem.item === item)
   if (index === -1) {
     spread.push({ item, probability })
   } else {

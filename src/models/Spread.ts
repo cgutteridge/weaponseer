@@ -1,4 +1,3 @@
-
 // a range of probabilities to get a number
 import type SpreadItem from '@/models/SpreadItem'
 

@@ -1,7 +1,6 @@
-import type { Defender } from '@/models/Defender'
 import type { Weapon } from '@/models/Weapon'
 
-export default function weaponToStep (weapon: Weapon) {
+export default function weaponToStep(weapon: Weapon) {
   console.log(weapon)
   // set no killed and no wounds for each unit
 

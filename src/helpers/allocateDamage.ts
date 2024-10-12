@@ -1,6 +1,6 @@
 import type { Defender } from '@/models/Defender'
 
-export default function allocateDamage (defState: string[], defenders: Defender[], damage: number) {
+export default function allocateDamage(defState: string[], defenders: Defender[], damage: number) {
   for (let i = 0; i < defState.length; i++) {
     const dProps = defState[i].split(',')
     let killed: number = parseInt(dProps[0])

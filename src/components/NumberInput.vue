@@ -1,12 +1,7 @@
 <script setup lang="ts">
-import { getStateStore } from '@/stores/state'
-import dicePhraseToRollDescription from '@/helpers/dicePhraseToRollDescription'
 import { computed, type Ref, ref, watch } from 'vue'
-import { n } from 'vitest/dist/reporters-yx5ZTtEV'
 
-const stateStore = getStateStore()
-
-const props = defineProps<{ value: number, min: number, max: number }>()
+const props = defineProps<{ value: number; min: number; max: number }>()
 const emit = defineEmits(['update:value'])
 
 const inputValue: Ref<string> = ref(`${props.value}`)
@@ -17,11 +12,14 @@ const inputClass = computed(() => {
 })
 
 // Watch for changes in the prop and update inputValue accordingly
-watch(() => props.value, (newValue) => {
-  inputValue.value = `${newValue}`
-})
+watch(
+  () => props.value,
+  (newValue) => {
+    inputValue.value = `${newValue}`
+  }
+)
 
-function valueChanged (event: Event) {
+function valueChanged(event: Event) {
   const rawValue: string = (event.target as HTMLInputElement)?.value ?? ''
   const value: number = parseInt(rawValue)
   inputValue.value = rawValue
@@ -36,7 +34,15 @@ function valueChanged (event: Event) {
 </script>
 
 <template>
-  <input :value="inputValue" @input="valueChanged" size="1" type="number" :min="min" :max="max" :class="inputClass" />
+  <input
+    :value="inputValue"
+    @input="valueChanged"
+    size="1"
+    type="number"
+    :min="min"
+    :max="max"
+    :class="inputClass"
+  />
 </template>
 
 <style scoped>

@@ -7,18 +7,25 @@ import addToSpread from '@/helpers/spreadHelpers/addToSpread'
 import setWoundsToApply from '@/helpers/stepHelpers/setWoundsToApply'
 
 // step props: (countDicePhrase, optsList)
-export default function processStepCalculateDamage (props: string[], steps: string[], defState: string[], defenders: Defender[]): Spread<string> {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export default function processStepCalculateDamage(
+  props: string[],
+  steps: string[],
+  defState: string[],
+  defenders: Defender[]
+): Spread<string> {
   const attacksDicePhraseString = props.shift() ?? '1'
 
   const rollSpread = dicePhraseToProbabilities(attacksDicePhraseString)
 
   const newSpread: Spread<string> = []
 
-  rollSpread.map(rollSpreadItem => {
+  rollSpread.map((rollSpreadItem) => {
     addToSpread(
       newSpread,
-      renderCode(setWoundsToApply( steps, rollSpreadItem.item), defState),
-      rollSpreadItem.probability)
+      renderCode(setWoundsToApply(steps, rollSpreadItem.item), defState),
+      rollSpreadItem.probability
+    )
   })
 
   return newSpread

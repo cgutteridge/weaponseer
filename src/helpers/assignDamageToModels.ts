@@ -4,8 +4,12 @@ import type DefenderState from '@/models/DefenderState'
 import type SpreadItem from '@/models/SpreadItem'
 
 // nb this assumes damage is applied sequentially and not using precision attacks
-export function assignDamageToModels (outcome: SpreadItem<string>, defState: DefenderState[], report: BattleReport, defenders: Defender[]) {
-
+export function assignDamageToModels(
+  outcome: SpreadItem<string>,
+  defState: DefenderState[],
+  report: BattleReport,
+  defenders: Defender[]
+) {
   // calculate total wounds done
   let totalWounds = 0
   defState.forEach((defStateItem, defIndex) => {

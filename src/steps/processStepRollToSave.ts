@@ -9,14 +9,21 @@ import diceChancesToStepsSpread from '@/helpers/diceChancesToStepsSpread'
 
 // step props: (acMod, optsList)
 // TODO rerolls, crits, devestating,
-export default function processStepRollToSave (props: string[], steps: string[], defState: string[], defenders: Defender[]): Spread<string> {
+export default function processStepRollToSave(
+  props: string[],
+  steps: string[],
+  defState: string[],
+  defenders: Defender[]
+): Spread<string> {
   const target: Defender | undefined = establishTarget(defState, defenders)
   if (target === undefined) {
     return processStepNull(props, steps, defState, defenders)
   }
   const acMod = parseInt(props.shift() ?? '0')
   let targetRoll = target.ac - acMod
-  if (target.invuln < targetRoll) { targetRoll = target.invuln}
+  if (target.invuln < targetRoll) {
+    targetRoll = target.invuln
+  }
 
   return diceChancesToStepsSpread(
     getModifiedRollOutcomes(targetRoll, false, false, 7),
@@ -26,6 +33,6 @@ export default function processStepRollToSave (props: string[], steps: string[],
       norm: nullifyCurrentAttack(steps),
       crit: [...steps] // there is no critical
     },
-    defState)
+    defState
+  )
 }
-

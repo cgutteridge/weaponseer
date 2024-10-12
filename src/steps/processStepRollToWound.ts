@@ -10,7 +10,12 @@ import diceChancesToStepsSpread from '@/helpers/diceChancesToStepsSpread'
 
 // step props: (strength, optsList)
 // TODO the -1 if s higher than t rule
-export default function processStepRollToWound (props: string[], steps: string[], defState: string[], defenders: Defender[]): Spread<string> {
+export default function processStepRollToWound(
+  props: string[],
+  steps: string[],
+  defState: string[],
+  defenders: Defender[]
+): Spread<string> {
   // later need to worry about sustained, lethal and rerolls
   // lethal would alter next step to be an auto hit
   // sustained 3 would need to rewrite the weapon to be 1 weapon + 3 nulls  or 4 weapons (sheesh)
@@ -33,5 +38,6 @@ export default function processStepRollToWound (props: string[], steps: string[]
       norm: [...steps],
       crit: [...steps]
     },
-    defState)
+    defState
+  )
 }

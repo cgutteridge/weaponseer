@@ -5,14 +5,22 @@ import renderCode from '@/helpers/renderCode'
 import addToSpread from '@/helpers/spreadHelpers/addToSpread'
 
 // step props: (countDicePhrase, optsList)
-export default function processStepNumberOfAttacks (props: string[], steps: string[], defState: string[], defenders: Defender[]): Spread<string> {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export default function processStepNumberOfAttacks(
+  props: string[],
+  steps: string[],
+  defState: string[],
+  defenders: Defender[]
+): Spread<string> {
   const attacksDicePhraseString = props.shift() ?? '1'
 
   const rollSpread = dicePhraseToProbabilities(attacksDicePhraseString)
 
   // find the highest number of attacks
   const maxAttacks: number = rollSpread.reduce(
-    (acc, rollSpreadItem) => Math.max(acc, rollSpreadItem.item), 0)
+    (acc, rollSpreadItem) => Math.max(acc, rollSpreadItem.item),
+    0
+  )
   // pull off the rest of this weapon off the steps, and make a null weapon with the same number of steps
 
   const weapon: string[] = []
@@ -32,7 +40,7 @@ export default function processStepNumberOfAttacks (props: string[], steps: stri
   nullWeapon.push('*')
 
   const newSpread: Spread<string> = []
-  rollSpread.map(rollSpreadItem => {
+  rollSpread.map((rollSpreadItem) => {
     const newSteps: string[] = []
     for (let attackNumber = 1; attackNumber <= maxAttacks; attackNumber++) {
       if (attackNumber <= rollSpreadItem.item) {

@@ -1,4 +1,3 @@
-
 // a range of probabilities to get a number
 
 import type { Probability } from '@/models/Probability'

@@ -11,15 +11,13 @@ import { faTrashCan, faBars } from '@fortawesome/free-solid-svg-icons'
 const stateStore = getStateStore()
 
 const props = defineProps<{ weaponId: number }>()
-const weapon = computed<Weapon>(
-  () => stateStore.getWeapon(props.weaponId)
-)
+const weapon = computed<Weapon>(() => stateStore.getWeapon(props.weaponId))
 </script>
 
 <template>
-  <div style="background-color:#ccc; padding: 0.2rem; margin-bottom: 0.2rem">
+  <div style="background-color: #ccc; padding: 0.2rem; margin-bottom: 0.2rem">
     <div>
-      <FontAwesomeIcon :icon="faBars" style="margin-right:0.5rem" />
+      <FontAwesomeIcon :icon="faBars" style="margin-right: 0.5rem" />
 
       <input v-model="weapon.name" style="width: 10em" />
       A:
@@ -32,13 +30,13 @@ const weapon = computed<Weapon>(
       <number-input v-model:value="weapon.ap" :min="-6" :max="0" />
       D:
       <roll-input v-model:roll="weapon.damage" />
-      <FontAwesomeIcon :icon="faTrashCan"
-                       @click="stateStore.removeWeapon(weapon.id as number)"
-                       style="margin-left: 0.5rem; cursor: pointer; display: inline-block" />
+      <FontAwesomeIcon
+        :icon="faTrashCan"
+        @click="stateStore.removeWeapon(weapon.id as number)"
+        style="margin-left: 0.5rem; cursor: pointer; display: inline-block"
+      />
     </div>
   </div>
-
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

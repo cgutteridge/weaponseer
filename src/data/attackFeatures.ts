@@ -3,7 +3,7 @@
    can't yet be modelled.
  */
 export default [
-/*
+  /*
 'reroll attacks',
 'reroll hits',
 'reroll hits 1',
@@ -20,4 +20,3 @@ export default [
 'critical wound 5',
  */
 ]
-

@@ -1,6 +1,6 @@
 import { getStateStore } from '@/stores/state'
 
-export default function initialiseStores (): void {
+export default function initialiseStores(): void {
   const state = getStateStore()
 
   state.addDefender({ invuln: 7, n: 5, ac: 3, w: 2, fnp: 7, t: 4, name: 'Marines' })
@@ -27,7 +27,7 @@ export default function initialiseStores (): void {
   )
 
    */
-/*
+  /*
   state.addWeapon(
     {
       name: 'Las Cannon',
@@ -55,17 +55,15 @@ export default function initialiseStores (): void {
     )
 
 */
-  state.addWeapon(
-    {
-      name: 'Lasgun',
-      attacks: '12',
-      strength: 3,
-      ws: 4,
-      ap: 0,
-      options: [],
-      damage: '1',
-    }
-  )
+  state.addWeapon({
+    name: 'Lasgun',
+    attacks: '12',
+    strength: 3,
+    ws: 4,
+    ap: 0,
+    options: [],
+    damage: '1'
+  })
   /*
   state.addWeapon(
     {
@@ -81,6 +79,4 @@ export default function initialiseStores (): void {
 
 
    */
-
-
 }

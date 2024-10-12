@@ -1,4 +1,3 @@
-
-export default function renderCode (steps: string[], defState: string[]) {
+export default function renderCode(steps: string[], defState: string[]) {
   return steps.join('|') + '>' + defState.join('|')
 }

@@ -1,4 +1,4 @@
-export default function nullifyCurrentAttack (steps: string[]) {
+export default function nullifyCurrentAttack(steps: string[]) {
   const outputSteps = [...steps]
   // remove everything to the next * from the stepsFail as the sequence ends
   for (let i = 0; outputSteps[i] !== '*' && i < outputSteps.length; i++) {

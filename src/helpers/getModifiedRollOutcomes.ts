@@ -1,7 +1,12 @@
 import type { RollOutcome } from '@/models/RollOutcome'
 import type { Probability } from '@/models/Probability'
 
-export default function getModifiedRollOutcomes (target: number, reroll: boolean, reroll1: boolean, crit: number): Record<RollOutcome, Probability> {
+export default function getModifiedRollOutcomes(
+  target: number,
+  reroll: boolean,
+  reroll1: boolean,
+  crit: number
+): Record<RollOutcome, Probability> {
   const outcomes: Record<RollOutcome, Probability> = { fail: 0, norm: 0, crit: 0 }
   for (let d1 = 1; d1 <= 6; d1++) {
     if (d1 >= crit) {

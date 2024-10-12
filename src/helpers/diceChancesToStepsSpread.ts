@@ -3,7 +3,7 @@ import type { Spread } from '@/models/Spread'
 import renderCode from '@/helpers/renderCode'
 import type { Probability } from '@/models/Probability'
 
-export default function diceChancesToStepsSpread (
+export default function diceChancesToStepsSpread(
   diceChances: Record<RollOutcome, Probability>,
   outcomeToSteps: Record<RollOutcome, string[]>,
   defState: string[]

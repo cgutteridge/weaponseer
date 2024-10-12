@@ -9,6 +9,4 @@ initialiseStores()
   <BattleView />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

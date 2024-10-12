@@ -11,7 +11,13 @@ import processStepCalculateDamage from '@/steps/processStepCalculateDamage'
 import processStepApplyMortalWounds from '@/steps/processStepApplyMortalWounds'
 import processStepRollToFeelNoPain from '@/steps/processStepRollToFeelNoPain'
 
-export default function processStep (stepType: string, props: string[], steps: string[], defState: string[], defenders: Defender[]): Spread<string> {
+export default function processStep(
+  stepType: string,
+  props: string[],
+  steps: string[],
+  defState: string[],
+  defenders: Defender[]
+): Spread<string> {
   if (stepType === 'A') {
     return processStepNumberOfAttacks(props, steps, defState, defenders)
   }
@@ -36,7 +42,7 @@ export default function processStep (stepType: string, props: string[], steps: s
   if (stepType === 'X' || stepType === '*') {
     return processStepNull(props, steps, defState, defenders)
   }
-  if (stepType === 'M' ) {
+  if (stepType === 'M') {
     return processStepApplyMortalWounds(props, steps, defState, defenders)
   }
   throw new Error('BAD STEP TYPE: ' + stepType + ' ')

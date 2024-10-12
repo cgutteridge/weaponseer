@@ -1,9 +1,5 @@
 <script setup lang="ts">
-import { getStateStore } from '@/stores/state'
-import dicePhraseToRollDescription from '@/helpers/dicePhraseToRollDescription'
-import { computed, ref, watch } from 'vue'
-
-const stateStore = getStateStore()
+import { ref, watch } from 'vue'
 
 const props = defineProps<{ value: number }>()
 const emit = defineEmits(['update:value'])
@@ -11,16 +7,18 @@ const emit = defineEmits(['update:value'])
 const targetValue = ref(props.value)
 
 // Watch for changes in the prop and update inputValue accordingly
-watch(() => props.value, (newValue) => {
-  targetValue.value = newValue
-})
+watch(
+  () => props.value,
+  (newValue) => {
+    targetValue.value = newValue
+  }
+)
 
-function valueChanged (event: Event) {
-  const value : string  = (event.target as HTMLInputElement)?.value ?? ''
+function valueChanged(event: Event) {
+  const value: string = (event.target as HTMLInputElement)?.value ?? ''
   targetValue.value = parseInt(value)
   emit('update:value', targetValue.value) // Emit the valid value upwards
 }
-
 </script>
 
 <template>
@@ -35,6 +33,4 @@ function valueChanged (event: Event) {
   </select>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

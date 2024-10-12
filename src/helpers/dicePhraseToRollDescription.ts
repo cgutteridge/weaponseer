@@ -1,7 +1,6 @@
 import type RollDescription from '@/models/RollDescription'
 
-export default function dicePhraseToRollDescription (dicePhrase: string): RollDescription {
-
+export default function dicePhraseToRollDescription(dicePhrase: string): RollDescription {
   const diceRegex = /^((\d+)?[dD]([36])([+-]\d+)?|(\d+))$/
 
   const bits: RegExpMatchArray | null = dicePhrase.match(diceRegex)

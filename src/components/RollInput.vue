@@ -2,7 +2,6 @@
 import dicePhraseToRollDescription from '@/helpers/dicePhraseToRollDescription'
 import { computed, ref, watch } from 'vue'
 
-
 const props = defineProps<{ roll: string }>()
 const emit = defineEmits(['update:roll'])
 
@@ -14,16 +13,19 @@ const inputClass = computed(() => {
 })
 
 // Watch for changes in the prop and update inputValue accordingly
-watch(() => props.roll, (newValue) => {
-  inputValue.value = newValue
-})
+watch(
+  () => props.roll,
+  (newValue) => {
+    inputValue.value = newValue
+  }
+)
 
-function valueChanged (event: Event) {
+function valueChanged(event: Event) {
   const value = (event.target as HTMLInputElement)?.value ?? ''
   inputValue.value = value
   // emit if valid
   try {
-    const dicePhrase = dicePhraseToRollDescription(value)
+    dicePhraseToRollDescription(value)
     inputValid.value = true
     emit('update:roll', value) // Emit the valid value upwards
   } catch (err) {
@@ -33,7 +35,13 @@ function valueChanged (event: Event) {
 </script>
 
 <template>
-  <input :value="inputValue" style="width:4em" @input="valueChanged" ref="input" :class="inputClass">
+  <input
+    :value="inputValue"
+    style="width: 4em"
+    @input="valueChanged"
+    ref="input"
+    :class="inputClass"
+  />
 </template>
 
 <style scoped>

@@ -5,7 +5,7 @@ import never from '@/helpers/never'
 import processSpreadStep from '@/helpers/processSpreadStep'
 import battleSpreadToBattleReport from '@/helpers/battleSpreadToBattleReport'
 
-export default function resolveBattleSpread (defenders: Defender[], startingSpread: Spread<string>) {
+export default function resolveBattleSpread(defenders: Defender[], startingSpread: Spread<string>) {
   if (!validateDefenders(defenders)) {
     return { units: [], noDamage: never() }
   }

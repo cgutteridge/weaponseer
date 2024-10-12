@@ -48,7 +48,7 @@ const convertToJSON = async () => {
   try {
     const data = await fs.readFile(filePath, 'utf8')
     const lines = data.trim().split('\n')
-    const headers = lines[0].split('|') // First line is the header
+    //const headers = lines[0].split('|') // First line is the header
     const parsedData = lines.slice(1).map(parseLine) // Process each data line
 
     console.log(JSON.stringify(parsedData, null, 2)) // Output the JSON
