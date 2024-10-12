@@ -7,6 +7,7 @@ default weapons
 default units with weapons and defenders
 enforce max & min on number inputs
 Add options to weapons
+weapon options + attacker options (abilities like rerolls)
 
 Number of Attacks: reroll?
 Hit: RR1,RR,Sustained,Crit,Lethal

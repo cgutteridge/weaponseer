@@ -4,6 +4,7 @@ import { computed } from 'vue'
 import type { Weapon } from '@/models/Weapon'
 import RollInput from '@/components/RollInput.vue'
 import TargetRollInput from '@/components/TargetRollInput.vue'
+import NumberInput from '@/components/NumberInput.vue'
 
 const stateStore = getStateStore()
 
@@ -22,8 +23,8 @@ const weapon = computed<Weapon>(
       <roll-input v-model:roll="weapon.attacks" />
       H:
       <target-roll-input v-model:value="weapon.ws" />
-      S:<input v-model="weapon.strength" type="number" min="1" max="30" />
-      AP:<input v-model="weapon.ap" type="number" min="-6" max="0" />
+      S:<number-input v-model:value="weapon.strength" :min="1" :max="30" />
+      AP:<number-input v-model:value="weapon.ap" :min="-6" :max="0" />
       D:
       <roll-input v-model:roll="weapon.damage" />
       [remove TODO]

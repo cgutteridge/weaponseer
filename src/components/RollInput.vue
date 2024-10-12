@@ -38,10 +38,9 @@ function valueChanged (event: Event) {
 
 <style scoped>
 .bad {
-  border: solid 2px red;
+  border: solid 3px red;
 }
 .good {
-  border: solid 2px black;
+  border: solid 3px transparent;
 }
-
 </style>
